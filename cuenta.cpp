@@ -39,14 +39,12 @@ int main(int argc, char** argv)
 	string e="12345";
 
 
-	ofstream cuentatxt;
-	cuentatxt.open (nombreCuenta);
+	ofstream cuentatxt(nombreCuenta, std::ios_base::app);
 
 	cuentatxt<<contarString(txt,a)<<"\n"<<contarString(txt,b)<<"\n"<<contarString(txt,c)<<"\n"<<contarString(txt,d)<<"\n"<<contarString(txt,e)<<"\n";
 
 
-	ofstream tiempotxt;
-	tiempotxt.open(nombreTiempo);
+	ofstream tiempotxt(nombreTiempo, std::ios_base::app);
 
 	clock_t end = clock();
 	double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
@@ -59,7 +57,6 @@ int main(int argc, char** argv)
 	return 0;
 
 }
-
 
 
 int contarString(const std::string& str, const std::string& sub)
